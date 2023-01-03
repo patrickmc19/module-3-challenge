@@ -1,38 +1,68 @@
 // Assignment code here
-var pwChars = {
-  lowCase: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"],
-  upCase: lowCase.toUpperCase(),
-  nums: [0,1,2,3,4,5,6,7,8,9],
-  spChar: ["!","#","$","%","&","(",")","*","+","-","/","?",">","<","=","]","[",".",","],
-  lengthMax: 128,
-  lengthMin: 8,
-}
+var lowerCase = arrayForCharCodes(97, 122);
+var upperCase = arrayForCharCodes(65, 90);
+var numbers = arrayForCharCodes(48, 57);
+var special = arrayForCharCodes(32, 47).concat(
+  arrayForCharCodes(58, 64)
+).concat(
+  arrayForCharCodes(91, 96)
+).concat(
+  arrayForCharCodes(123, 126)
+)
+
+// unsure how to make use of this starter code...
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-
 // Write password to the #password input
 function writePassword() {
-    var userInput = window.prompt("How many characters would like you in your password? \nPlease enter a numerical value.");
-    if (userInput <= 7 && userInput >= 129 && userInput == NaN){
-      window.alert("Your password must be at least 8 characters. \nPlease enter a numerical value over 8.");
-      return;
-    }
-    else if (userInput >= 8 && userInput <= 128){
-
-    }
-    
-
-
+  var passwordLength = window.prompt("Please select a password length between 8 and 128 characters.");
+  if (passwordLength > 128 || passwordLength < 7 || isNaN(passwordLength)) {
+    window.alert("Sorry, your selection did not meet the defined criteria. Please try again.")
+  } else {
+    // unsure how to make use of this starter code...
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  var passwordCharacters = document.querySelector("#password");
+  passwordCharacters.value = password;
+  }
 }
 
+function generatePassword(passwordLength, passwordChoices, characterCode){
+  var passwordChoices = null;
+  if (confirm("Would you like to include lower case letters?") == true) {
+    passwordChoices = passwordChoices.concat(lowerCase);
+  }
+  if (confirm("Would you like to include upper case letters?") == true) {
+    passwordChoices = passwordChoices.concat(upperCase);
+  }
+  if (confirm("Would you like to include numbers?") == true) {
+    passwordChoices = passwordChoices.concat(numbers);
+  }
+  if (confirm("Would you like to include special characters?") == true) {
+    passwordChoices = passwordChoices.concat(special);
+  }
+  if (passwordChoices = null) {
+    throw new Error("You did not select any character types. You will need to start over.")
+  }
 
+  var passwordCharacters = []
+  for (var i = 0; i < passwordLength; i++){
+    var characterCode = passwordChoices[Math.floor(Math.random() * passwordChoices.length)]
+    passwordCharacters.push(String.fromCharCode(characterCode))
+  }
+
+  return passwordCharacters.join("")
+}
+
+// creates arrays for character codes based off of ASCII codes found via google search
+function arrayForCharCodes(first, last){
+  var array = []
+  for (var i = first; i <= last; i++) {
+    array.push(i)
+  }
+  return array
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
