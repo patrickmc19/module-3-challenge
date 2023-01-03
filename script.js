@@ -18,8 +18,8 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var passwordLength = window.prompt("Please select a password length between 8 and 128 characters.");
-  if (passwordLength > 128 || passwordLength < 7 || isNaN(passwordLength)) {
-    window.alert("Sorry, your selection did not meet the defined criteria. Please try again.")
+  if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
+    window.alert("Sorry, your selection did not meet the password criteria. Please try again.")
   } else {
     // unsure how to make use of this starter code...
   var password = generatePassword();
@@ -33,17 +33,17 @@ function generatePassword(passwordLength, passwordChoices, characterCode){
   if (confirm("Would you like to include lower case letters?") == true) {
     passwordChoices = passwordChoices.concat(lowerCase);
   }
-  if (confirm("Would you like to include upper case letters?") == true) {
+  else if (confirm("Would you like to include upper case letters?") == true) {
     passwordChoices = passwordChoices.concat(upperCase);
   }
-  if (confirm("Would you like to include numbers?") == true) {
+  else if (confirm("Would you like to include numbers?") == true) {
     passwordChoices = passwordChoices.concat(numbers);
   }
-  if (confirm("Would you like to include special characters?") == true) {
+  else if (confirm("Would you like to include special characters?") == true) {
     passwordChoices = passwordChoices.concat(special);
   }
-  if (passwordChoices = null) {
-    throw new Error("You did not select any character types. You will need to start over.")
+  else {
+    alert("You did not select any character types, unable to generate password.")
   }
 
   var passwordCharacters = []
