@@ -1,4 +1,4 @@
-// Assignment code here
+// created arrays using function (line 65) from character codes found on google
 var lowerCase = arrayForCharCodes(97, 122);
 var upperCase = arrayForCharCodes(65, 90);
 var numbers = arrayForCharCodes(48, 57);
@@ -9,13 +9,14 @@ var special = arrayForCharCodes(32, 47).concat(
 ).concat(
   arrayForCharCodes(123, 126)
 )
+var passwordCharacters = document.querySelector("#password");
 
 // unsure how to make use of this starter code...
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// this function checks the password length meets our criteria, if not it ends with an alert asking them to try again. if it does, generate password function runs.
 function writePassword() {
   var passwordLength = window.prompt("Please select a password length between 8 and 128 characters.");
   if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
@@ -23,29 +24,36 @@ function writePassword() {
   } else {
     // unsure how to make use of this starter code...
   var password = generatePassword();
-  var passwordCharacters = document.querySelector("#password");
-  passwordCharacters.value = password;
+  passwordCharacters.innerHTML = password;
   }
 }
 
-function generatePassword(passwordLength, passwordChoices, characterCode){
+// this function checks all possible criteria for password, if true the desired array will concat to the empty "passwordChoices" var. If none selected alert displays.
+function generatePassword(){
   var passwordChoices = null;
-  if (confirm("Would you like to include lower case letters?") == true) {
+  var choice1 = confirm("Would you like to include lower case letters?");
+  var choice2 = confirm("Would you like to include upper case letters?");
+  var choice3 = confirm("Would you like to include numbers?");
+  var choice4 = confirm("Would you like to include special characters?");
+  
+  if (choice1 == true) {
     passwordChoices = passwordChoices.concat(lowerCase);
   }
-  else if (confirm("Would you like to include upper case letters?") == true) {
+  if (choice2 == true) {
     passwordChoices = passwordChoices.concat(upperCase);
   }
-  else if (confirm("Would you like to include numbers?") == true) {
+  if (choice3 == true) {
     passwordChoices = passwordChoices.concat(numbers);
   }
-  else if (confirm("Would you like to include special characters?") == true) {
+  if (choice4 == true) {
     passwordChoices = passwordChoices.concat(special);
   }
   else {
-    alert("You did not select any character types, unable to generate password.")
+    alert("Please select at least 1 character type for your password.")
+    generatePassword()
   }
 
+  // the goal here is to return a randomly generated assortment of characters from the passwordChoices var, while using the selected passwordLength as the returned length.
   var passwordCharacters = []
   for (var i = 0; i < passwordLength; i++){
     var characterCode = passwordChoices[Math.floor(Math.random() * passwordChoices.length)]
