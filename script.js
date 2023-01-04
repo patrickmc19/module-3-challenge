@@ -18,9 +18,10 @@ var generateBtn = document.querySelector("#generate");
 
 // this function checks the password length meets our criteria, if not it ends with an alert asking them to try again. if it does, generate password function runs.
 function writePassword() {
-  var passwordLength = window.prompt("Please select a password length between 8 and 128 characters.");
+  var passwordLength = Math.round(window.prompt("Please select a password length between 8 and 128 characters."));
   if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
     window.alert("Sorry, your selection did not meet the password criteria. Please try again.")
+    writePassword()
   } else {
     // unsure how to make use of this starter code...
   var password = generatePassword();
