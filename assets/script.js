@@ -55,13 +55,13 @@ function generatePassword(){
   }
 
   // the goal here is to return a randomly generated assortment of characters from the passwordChoices var, while using the selected passwordLength as the returned length.
-  var passwordCharacters = []
+  var passwordChars = []
   for (var i = 0; i < passwordLength; i++){
     var characterCode = passwordChoices[Math.floor(Math.random() * passwordChoices.length)]
-    passwordCharacters.push(String.fromCharCode(characterCode))
+    passwordChars.push(String.fromCharCode(characterCode))
   }
 
-  return passwordCharacters.join("")
+  alert(passwordChars.join(""))
 }
 
 // creates arrays for character codes based off of ASCII codes found via google search
