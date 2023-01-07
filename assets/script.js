@@ -9,29 +9,28 @@ var special = arrayForCharCodes(32, 47).concat(
 ).concat(
   arrayForCharCodes(123, 126)
 )
-var passwordCharacters = document.querySelector("#password");
-
-// unsure how to make use of this starter code...
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+var passwordLength = 0;
 // this function checks the password length meets our criteria, if not it ends with an alert asking them to try again. if it does, generate password function runs.
 function writePassword() {
-  var passwordLength = Math.round(window.prompt("Please select a password length between 8 and 128 characters."));
+  passwordLength = Math.round(window.prompt("Please select a password length between 8 and 128 characters."));
   if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
     window.alert("Sorry, your selection did not meet the password criteria. Please try again.")
     writePassword()
   } else {
     // unsure how to make use of this starter code...
+  var passwordCharacters = document.querySelector("#password");
   var password = generatePassword();
-  passwordCharacters.innerHTML = password;
+  passwordCharacters.value = password;
   }
 }
 
 // this function checks all possible criteria for password, if true the desired array will concat to the empty "passwordChoices" var. If none selected alert displays.
 function generatePassword(){
-  var passwordChoices = null;
+  var passwordChoices = [];
   var choice1 = confirm("Would you like to include lower case letters?");
   var choice2 = confirm("Would you like to include upper case letters?");
   var choice3 = confirm("Would you like to include numbers?");
@@ -60,8 +59,7 @@ function generatePassword(){
     var characterCode = passwordChoices[Math.floor(Math.random() * passwordChoices.length)]
     passwordChars.push(String.fromCharCode(characterCode))
   }
-
-  alert(passwordChars.join(""))
+  return passwordChars.join("")
 }
 
 // creates arrays for character codes based off of ASCII codes found via google search
