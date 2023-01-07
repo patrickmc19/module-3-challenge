@@ -14,14 +14,13 @@ var special = arrayForCharCodes(32, 47).concat(
 var generateBtn = document.querySelector("#generate");
 
 var passwordLength = 0;
-// this function checks the password length meets our criteria, if not it ends with an alert asking them to try again. if it does, generate password function runs.
+// this function checks if the password length meets our criteria, if not it ends with an alert asking them to try again. if it does, generate password function runs.
 function writePassword() {
   passwordLength = Math.round(window.prompt("Please select a password length between 8 and 128 characters."));
   if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
     window.alert("Sorry, your selection did not meet the password criteria. Please try again.")
     writePassword()
   } else {
-    // unsure how to make use of this starter code...
   var passwordCharacters = document.querySelector("#password");
   var password = generatePassword();
   passwordCharacters.value = password;
@@ -47,10 +46,6 @@ function generatePassword(){
   }
   if (choice4 == true) {
     passwordChoices = passwordChoices.concat(special);
-  }
-  else {
-    alert("Please select at least 1 character type for your password.")
-    generatePassword()
   }
 
   // the goal here is to return a randomly generated assortment of characters from the passwordChoices var, while using the selected passwordLength as the returned length.
