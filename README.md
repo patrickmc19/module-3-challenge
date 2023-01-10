@@ -38,7 +38,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Deployed URL
 
-TBD
+https://patrickmc19.github.io/module-3-challenge/
 
 ## What was my motivation?
 
