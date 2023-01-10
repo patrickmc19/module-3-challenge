@@ -34,7 +34,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Screenshot
 
-(./assets/Screenshot_20230109_084546.png)
+![](./assets/Screenshot_20230109_084546.png)
 
 ## Deployed URL
 
@@ -50,7 +50,7 @@ To use the building blocks listed above and better understand how they work with
 
 ## What problem does it solve?
 
-This application solves the problem of easily creating secure passwords.
+This application solves the problem of creating quick and easy secure passwords.
 
 ## What did you learn?
 
