@@ -1,4 +1,4 @@
-// created arrays using function (line 65) from character codes found on google
+// created arrays using function (line 60) from character codes found on google
 var lowerCase = arrayForCharCodes(97, 122);
 var upperCase = arrayForCharCodes(65, 90);
 var numbers = arrayForCharCodes(48, 57);
@@ -14,7 +14,7 @@ var special = arrayForCharCodes(32, 47).concat(
 var generateBtn = document.querySelector("#generate");
 
 var passwordLength = 0;
-// this function checks if the password length meets our criteria, if not it ends with an alert asking them to try again. if it does, generate password function runs.
+// this function checks if the password length meets our criteria, if not it ends with an alert asking them to try again. if it does, generate password function runs and displays.
 function writePassword() {
   passwordLength = Math.round(window.prompt("Please select a password length between 8 and 128 characters."));
   if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
@@ -27,7 +27,7 @@ function writePassword() {
   }
 }
 
-// this function checks all possible criteria for password, if true the desired array will concat to the empty "passwordChoices" var. If none selected alert displays.
+// this function checks all possible criteria for password, if true the desired array will concat to the empty "passwordChoices" var. If none selected no password generates.
 function generatePassword(){
   var passwordChoices = [];
   var choice1 = confirm("Would you like to include lower case letters?");
@@ -57,7 +57,7 @@ function generatePassword(){
   return passwordChars.join("")
 }
 
-// creates arrays for character codes based off of ASCII codes found via google search
+// creates arrays for character codes based off of ASCII codes found via google search, the array uses first and last to add all numbers inbetween.
 function arrayForCharCodes(first, last){
   var array = []
   for (var i = first; i <= last; i++) {

@@ -34,7 +34,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Screenshot
 
-
+(./assets/Screenshot_20230109_084546.png)
 
 ## Deployed URL
 
@@ -42,7 +42,7 @@ TBD
 
 ## What was my motivation?
 
-To apply and master the concepts learned on Javascript, including setting variables, creating arrays, creating and running functions, creating windows - prompts, alerts, and confirms - concating, for loops, query selectprs, math - floor, random - push, join, within JS to complete desired result.
+To apply and master the concepts learned on Javascript, including setting variables, creating arrays, creating and running functions, creating windows - prompts, alerts, and confirms - concating, for loops, query selectors, math - floor, random - push, join, within JS to complete desired result.
 
 ## Why did I build this project?
 
